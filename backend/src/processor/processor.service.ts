@@ -21,10 +21,10 @@ export class ProcessorService implements OnModuleInit, OnModuleDestroy {
   constructor(private prisma: PrismaService) {
     this.s3Client = new S3Client({
       region: process.env.AWS_REGION || 'us-east-1',
-      credentials: {
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID || '',
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || '',
-      },
+      // credentials: {
+      //   accessKeyId: process.env.AWS_ACCESS_KEY_ID || '',
+      //   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || '',
+      // },
     });
   }
 
@@ -42,10 +42,10 @@ export class ProcessorService implements OnModuleInit, OnModuleDestroy {
       },
       sqs: new SQSClient({
         region: process.env.AWS_REGION || 'us-east-1',
-        credentials: {
-          accessKeyId: process.env.AWS_ACCESS_KEY_ID || '',
-          secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || '',
-        },
+        // credentials: {
+        //   accessKeyId: process.env.AWS_ACCESS_KEY_ID || '',
+        //   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || '',
+        // },
       }),
     });
 
