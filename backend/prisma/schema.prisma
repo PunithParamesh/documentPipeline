@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          Int      @id @default(autoincrement())
+  email       String   @unique
+  password    String
+  firstName   String
+  lastName    String
+  phoneNumber String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  documents   Document[]
+}
+
+model Document {
+  id          Int      @id @default(autoincrement())
+  filename    String
+  size        Int
+  mimeType    String
+  bucket      String
+  key         String
+  status      String   @default("UPLOADED")
+  pageCount   Int?
+  wordCount   Int?
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
+  isFavorite  Boolean  @default(false)
+  deletedAt   DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
