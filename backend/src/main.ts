@@ -8,7 +8,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   
   app.enableCors({
-    origin: 'http://localhost:5173', // Vite default port
+    origin: 'https://document-pipeline.vercel.app',
     credentials: true,
   });
   
