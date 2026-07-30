@@ -6,6 +6,6 @@ export class AppService {
 
   getHello(): string {
     this.logger.log('Returning hello message');
-    return 'Hello World!';
+    return 'Hello World!, deployment check';
   }
 }
