@@ -372,13 +372,13 @@ export default function DocumentScreen() {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
           <div className="bg-white rounded-2xl w-full max-w-5xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
             <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-gray-50/50">
-              <div className="flex items-center gap-4">
-                <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
-                  <FileText className="w-5 h-5 text-indigo-600" />
-                  {selectedPreviewDoc?.filename || 'Loading Document...'}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 overflow-hidden">
+                <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2 w-full sm:w-auto overflow-hidden">
+                  <FileText className="w-5 h-5 text-indigo-600 shrink-0" />
+                  <span className="truncate">{selectedPreviewDoc?.filename || 'Loading Document...'}</span>
                 </h3>
                 {selectedPreviewDoc && (
-                  <div className="flex items-center gap-2 border-l border-gray-200 pl-4 ml-2 hidden sm:flex">
+                  <div className="flex items-center gap-2 sm:border-l sm:border-gray-200 sm:pl-4 sm:ml-2 flex-wrap">
                     <span className="text-sm text-gray-500 font-medium mr-1">Processed Data:</span>
                     {selectedPreviewDoc.status && (
                       <span className={`px-2.5 py-0.5 rounded-full text-xs font-medium ${
