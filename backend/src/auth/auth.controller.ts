@@ -32,7 +32,7 @@ export class AuthController {
     this.logger.log(`User ${user.id} logged in successfully`);
     res.cookie('jwt', token, {
       httpOnly: true,
-      secure: false,
+      secure: true,
       sameSite: 'lax',
       maxAge: 1000 * 60 * 60 * 24, // 1 day
     });
